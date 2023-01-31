@@ -1,0 +1,157 @@
+Palindrome:
+
+Palindrome using split method:
+
+def palindrome(s):
+    temp = s[::-1]
+    if s == temp:
+        print("palindrome")
+    else:
+        print("Not palindrome")
+
+s = input("Enter your input: ")
+palindrome(s.lower())
+
+
+Using indexing/for loop:
+
+def palindrome(s):
+    n = len(s)
+    for i in range(n):
+        if s[i] != s[n-i-1]:
+            return False
+        return True
+        
+s = input("Enter your input:")
+ans = palindrome(s)
+if ans == True:
+    print("palindrome")
+else:
+    print("Not palindrome")
+
+ Using built in function: reversed and join: ==>Not used that much in interviews
+
+ def palindrome(s):
+    #reverse_s = reversed(s) ==> if we try to print this it will be an object and will throw error. so if you want to print it, we need to use loop and print it line by line
+    #Below is the actual code
+    temp = ''.join(reversed(s))
+    if s == temp:
+        print("palindrome")
+    else:
+        print("Not Palindrome")
+        
+        
+s = input("Enter your input:")
+palindrome(s)
+
+
+
+Using while loop
+
+def palindrome(s):
+    n = len(s)
+    first = 0
+    last = n -1
+    while(first < last):
+        if s[first] == s[last]:
+            first = first+1
+            last = last-1
+        else:
+            return False
+    return True
+
+s = input("Enter:") 
+out = palindrome(s)
+print(out)
+if out == True:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+
+
+
+Palindrome using numbers:
+
+def palindrome(n):
+    temp = n
+    digit = 0
+    rev_n = 0
+    while(temp>0):
+        digit = temp % 10
+        temp = temp // 10
+        rev_n = rev_n*10 + digit
+    if rev_n == n:
+        print("Palindrome")
+    else:
+        print("Not palindrome")
+        
+        
+
+n = int(input("Enter:")) 
+palindrome(n)
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Fibonacci series:
+
+def fib(n):
+    a = 0
+    b = 1
+    print(a)
+    while(b<n):
+        print(b)
+        temp = b
+        b = b + a
+        a = temp
+        
+
+n = int(input("Enter:"))
+fib(n)
+
+
+or
+	a,b = 0,1
+	print(a)
+    while(b<n):
+        print(b)
+        c = a + b
+        a = b
+        b = c
+        
+
+##By using recursion
+
+def fib(n):
+    if(n<=1):
+        return n
+    else:
+        return (fib(n-1)+fib(n-2))
+        
+n = int(input("enter:"))
+if n<+0:
+    print("Invalid")
+else:
+    for i in range(n):
+        print(fib(i))
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+input aabbbbcccccddddd
+output a2b3c5d5
+
+def compress(s):
+    count = 1
+    n = len(s)
+    new_s = ''
+    for i in range(n-1):
+        if s[i] == s[i+1]:
+            count = count +1
+        else:
+            new_s = new_s + s[i] + str(count)
+            count =1
+    new_s = new_s + s[n-1] + str(count)
+    return new_s
+    
+s = 'aabbbbc'
+print(compress(s))
+            
